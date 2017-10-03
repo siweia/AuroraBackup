@@ -654,7 +654,7 @@ C.themes["Blizzard_GarrisonUI"] = function()
 			portraitFrame.styled = true
 		end
 
-		local color = ITEM_QUALITY_COLORS[followerInfo.quality]
+		local color = BAG_ITEM_QUALITY_COLORS[followerInfo.quality]
 
 		portraitFrame.squareBG:SetBackdropBorderColor(color.r, color.g, color.b)
 		portraitFrame.squareBG:Show()
@@ -799,8 +799,8 @@ C.themes["Blizzard_GarrisonUI"] = function()
 				local hl = button:GetHighlightTexture()
 				hl:SetColorTexture(r, g, b, .1)
 				hl:ClearAllPoints()
-				hl:SetPoint("TOPLEFT", button,"TOPLEFT",1, -1)
-				hl:SetPoint("BOTTOMRIGHT",button, "BOTTOMRIGHT",-1, 1)
+				hl:SetPoint("TOPLEFT", button, "TOPLEFT", 1, -1)
+				hl:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", -1, 1)
 
 				if portrait then
 					F.ReskinGarrisonPortrait(portrait)
@@ -817,12 +817,9 @@ C.themes["Blizzard_GarrisonUI"] = function()
 				button:SetBackdropColor(0, 0, 0, .25)
 			end
 
-			if portrait then
-				if portrait.PortraitRingQuality:IsShown() then
-					portrait.squareBG:SetBackdropBorderColor(portrait.PortraitRingQuality:GetVertexColor())
-				else
-					portrait.squareBG:SetBackdropBorderColor(0, 0, 0)
-				end
+			if portrait and portrait.quality then
+				local color = BAG_ITEM_QUALITY_COLORS[portrait.quality]
+				portrait.squareBG:SetBackdropBorderColor(color.r, color.g, color.b)
 			end
 		end
 	end
