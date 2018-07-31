@@ -1,4 +1,4 @@
 # AuroraBackup
 ...
 
-The project has been renamed and move to https://github.com/siweia/AuroraClassic.
+The project has been renamed and moved to https://github.com/siweia/AuroraClassic.
